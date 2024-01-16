@@ -15,7 +15,7 @@ use MoonShine\Fields\ID;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Number;
 use MoonShine\Fields\Phone;
-use MoonShine\Fields\Relationships\BelongsTo;
+use MoonShine\Fields\Select;
 use MoonShine\Fields\Slug;
 use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Text;
@@ -63,8 +63,22 @@ class MasterResource extends ModelResource
                             ->from('name')
                             ->hideOnIndex(),
 
-                        BelongsTo::make('Напарник', 'senior', resource: new MasterResource())
-                            ->associatedWith('master_id')
+                        Select::make('Напарник', 'master_id')
+                            ->options(
+                                function () {
+                                    $masters = [];
+                                    if($this->getItem()) {
+                                        $currentItem = $this->getItem();
+                                        $items = Master::where('id', '!=', $currentItem->id)->select('id', 'name')->get()->toArray();
+                                    } else {
+                                        $items = Master::select('id', 'name')->get()->toArray();
+                                    }
+                                    foreach ($items as$item){
+                                        $masters[$item['id']] = $item['name'];
+                                    }
+                                    return $masters;
+                                }
+                            )->sortable()
                             ->nullable()
                             ->searchable(),
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -31,6 +32,9 @@ class Master extends Model implements HasMedia
         'meta_title',
         'meta_keywords',
         'meta_description'
+    ];
+    protected $appends = [
+        'url'
     ];
 
     public function registerMediaCollections(): void
@@ -61,7 +65,22 @@ class Master extends Model implements HasMedia
 
     public function senior(): BelongsTo
     {
-        return $this->belongsTo(Master::class, 'master_id', 'id');
+        return $this->belongsTo(Master::class, 'master_id');
     }
+
+    protected function url(): Attribute
+    {
+        if(!$this->master_id){
+            return Attribute::make(get: fn() => $this->slug);
+        } else {
+            return Attribute::make(get: fn() => $this->senior->slug);
+        }
+    }
+
+
+
+
+
+
 
 }

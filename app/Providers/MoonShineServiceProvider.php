@@ -11,6 +11,7 @@ use MoonShine\Menu\MenuItem;
 use MoonShine\Resources\MoonShineUserResource;
 use MoonShine\Resources\MoonShineUserRoleResource;
 use App\MoonShine\Resources\MasterResource;
+use App\MoonShine\Resources\SliderResource;
 use App\MoonShine\Pages\Import\masterImport;
 
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
@@ -35,6 +36,10 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                     new masterImport()
                 )->icon('heroicons.document-arrow-down'),
             ])->icon('heroicons.folder-arrow-down'),
+
+            MenuGroup::make('Контент', [
+                MenuItem::make('Слайдер', new SliderResource())->icon('heroicons.photo'),
+            ])->icon('heroicons.document-duplicate'),
 
 
 
