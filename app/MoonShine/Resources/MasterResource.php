@@ -52,7 +52,7 @@ class MasterResource extends ModelResource
                         Divider::make(),
                         Grid::make([
                             Column::make([
-                                Number::make('Сортировка', 'sort') ->default(50)->sortable() ,
+                                Number::make('Сортировка', 'sort')->default(50)->sortable() ,
                             ])->columnSpan(2),
                         ]),
                         Divider::make(),
@@ -94,6 +94,8 @@ class MasterResource extends ModelResource
                                 Email::make('Email')->hideOnIndex()
                             ])->columnSpan(6),
                         ]),
+                        Text::make('Местонахождения', 'location')
+                            ->placeholder('г. Москва'),
                         Divider::make('Написать в WhatsApp'),
                         Switcher::make('Добавить кнопку', 'whatsapp')->default(0)->hideOnIndex(),
 

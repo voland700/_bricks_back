@@ -8,13 +8,13 @@ Breadcrumbs::for('index', function ($trail) {
 });
 
 // - Masters list
-Breadcrumbs::for('front.masters.list', function (BreadcrumbTrail $trail) {
-    $trail->parent('front.index');
+Breadcrumbs::for('master.list', function (BreadcrumbTrail $trail) {
+    $trail->parent('index');
     $trail->push('Печники', route('master.index'));
 });
 // - Master detail
-Breadcrumbs::for('front.masters.detail', function (BreadcrumbTrail $trail, App\Models\Master $master) {
-    $trail->parent('front.index');
+Breadcrumbs::for('master.detail', function (BreadcrumbTrail $trail, App\Models\Master $master) {
+    $trail->parent('index');
     $trail->push('Печники', route('master.index'));
     $trail->push($master->name, route('master.item', $master));
 });

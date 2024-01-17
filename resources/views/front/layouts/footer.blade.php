@@ -94,8 +94,8 @@
             </div>
             <div class="footer_btn_up" id="upbutton"></div>
         </footer>
-        <script src="js/main.js"></script>
-        <script src="js/common.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/common.js"></script>
         @yield('scripts')
 
     </body>

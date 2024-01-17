@@ -12,7 +12,7 @@ class IndexController extends Controller
 {
     public function index(): View
     {
-        $masters = Master::query()->where([['active', '=', 1], ['main', '=', 1]])->orderBy('sort')->select('id', 'name', 'active', 'main', 'slug', 'master_id', 'member', 'sort')->get();
+        $masters = Master::query()->where([['active', '=', 1], ['main', '=', 1]])->orderBy('sort')->select('id', 'name', 'active', 'main', 'slug', 'master_id', 'member', 'sort', 'location')->get();
         $sliders = Slider::query()->where('active', 1)->orderBy('sort')->get();
         return view('front.index', ['sliders'=> $sliders, 'categories' => null, 'masters'=>$masters, 'products'=> null]);
 

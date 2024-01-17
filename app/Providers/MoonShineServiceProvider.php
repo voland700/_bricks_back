@@ -42,11 +42,6 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             ])->icon('heroicons.document-duplicate'),
 
 
-
-
-
-
-
             MenuGroup::make(static fn() => __('moonshine::ui.resource.system'), [
                MenuItem::make(
                    static fn() => __('moonshine::ui.resource.admins_title'),

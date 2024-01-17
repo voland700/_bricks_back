@@ -28,3 +28,7 @@ Route::get('/', [App\Http\Controllers\Front\IndexController::class, 'index'])->n
 
 Route::get('/masters', [App\Http\Controllers\Front\MasterController::class, 'index'])->name('master.index');
 Route::get('/master/{slug}', [App\Http\Controllers\Front\MasterController::class, 'master'])->name('master.item');
+
+// routs Modify Data - dell
+Route::get('/modify-add-locations', [App\Http\Controllers\Admin\ModifyController::class, 'addlocations']);
+

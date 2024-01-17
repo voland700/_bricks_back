@@ -48,6 +48,7 @@ class MastersImport implements ToCollection, WithHeadingRow
             $data['meta_title'] = $row[16] ?? null;
             $data['meta_description'] = $row[17] ?? null;
             $data['meta_keywords'] = $row[18] ?? null;
+            $data['location'] = $row[23] ?? null;
 
             $master = Master::create($data);
 

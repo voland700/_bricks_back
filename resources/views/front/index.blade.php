@@ -5,6 +5,7 @@
 <!-- <h1 class="visually-hidden">Пченой Центр в Грибках 5 км. от МКАД - в Москве</h1> -->
 @section('content')
     @if($sliders)
+        </div>
         <div class="container-fluid slider_box">
             <div class="container">
                 <div class="slider swiper" id="slider">
@@ -52,7 +53,7 @@
                                 <a href="{{route('master.item', $master->url)}}" class="artisan_img_link  shine" style="background-image: url({{$master->getFirstMediaUrl('small-photo')}})"></a>
                                 <h3 class="artisan_title">
                                     <a href="{{route('master.item', $master->url)}}" class="artisan_title_link">{{$master->name}}</a></h3>
-                                <p class="artisan_location">г. Москва</p>
+                                <p class="artisan_location">@if($master->location) {{$master->location}} @else {{''}}@endif</p>
                                 @if($master->member)<p class="artisan_info">Печник, участник НП РСПК</p> @endif
                             </li>
                        @endforeach

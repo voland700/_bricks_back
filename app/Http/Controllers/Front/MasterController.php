@@ -11,37 +11,36 @@ class MasterController extends Controller
 {
     public function index(): View
     {
-        $masters = Master::where('active', 1)->select('id', 'slug', 'master_id', 'sort', 'active', 'name')->orderBy('sort')->get();
+        $masters = Master::where('active', 1)->select('id', 'slug', 'master_id', 'sort', 'active', 'name')->orderBy('sort')->paginate(24);
 
-        return 'null';
-
-
+        return view('front.masters.list', ['masters'=> $masters]);
     }
 
-    public function gi(Request $request): View
+    public function master(Request $request): View
     {
-        $id=2;
-        $master = Master::query()->with('childrenMasters')->where('id', $id)->first();
-
-        dd($master);
-
-        /*
-        $masters = Master::with('childrenMasters')->where('id', $id)->first()->toArray();
-
-        $master[0] = $masters;
-
-        if(!empty($masters['children_masters'])){
-            $master[0]['children_masters'] = [];
-            foreach ($masters['children_masters'] as $masterItem) {
-                $key = 1;
-                $master[$key] = $masterItem;
-                $key++;
+        $master = Master::query()->with('childrenMasters')->where('slug', $request->slug)->first();
+        $diplomas = [];
+        $examples =[];
+        $diplomaItems = $master->getMedia('diploma');
+        $exampleItems = $master->getMedia('example');
+        if($diplomaItems->count()) {
+            foreach ($diplomaItems as $diplomaItem) array_push($diplomas, $diplomaItem->getUrl());
+        }
+        if($exampleItems->count()) {
+            foreach ($exampleItems as $exampleItem) array_push($examples, $exampleItem->getUrl());
+        }
+        if($master->childrenMasters){
+            foreach($master->childrenMasters as $childrenMaster){
+                $diplomaItems = $childrenMaster->getMedia('diploma');
+                $exampleItems = $childrenMaster->getMedia('example');
+                if($diplomaItems->count()) {
+                    foreach ($diplomaItems as $diplomaItem) array_push($diplomas, $diplomaItem->getUrl());
+                }
+                if($exampleItems->count()) {
+                    foreach ($exampleItems as $exampleItem) array_push($examples, $exampleItem->getUrl());
+                }
             }
         }
-*/
-        dd($master->url);
-
-
-
+        return view('front.masters.detail', ['master'=> $master, 'diplomas' => $diplomas, 'examples'=>$examples]);
     }
 }
