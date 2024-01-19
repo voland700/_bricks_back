@@ -52,7 +52,7 @@
                             <li class="artisan_item swiper-slide">
                                 <a href="{{route('master.item', $master->url)}}" class="artisan_img_link  shine" style="background-image: url({{$master->getFirstMediaUrl('small-photo')}})"></a>
                                 <h3 class="artisan_title">
-                                    <a href="{{route('master.item', $master->url)}}" class="artisan_title_link">{{$master->name}}</a></h3>
+                                <a href="{{route('master.item', $master->url)}}" class="artisan_title_link">{{$master->name}}</a></h3>
                                 <p class="artisan_location">@if($master->location) {{$master->location}} @else {{''}}@endif</p>
                                 @if($master->member)<p class="artisan_info">Печник, участник НП РСПК</p> @endif
                             </li>
