@@ -32,3 +32,5 @@ Route::get('/master/{slug}', [App\Http\Controllers\Front\MasterController::class
 // routs Modify Data - dell
 Route::get('/modify-add-locations', [App\Http\Controllers\Admin\ModifyController::class, 'addlocations']);
 
+Route::get('/test', [App\Http\Controllers\Front\TestController::class, 'test']);
+

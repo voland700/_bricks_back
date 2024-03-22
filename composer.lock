@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fd2e9a8dbad7c810a279a7fdc716081",
+    "content-hash": "856e12ac200d263b69c866d54c5ab36c",
     "packages": [
         {
             "name": "brick/math",
@@ -1396,6 +1396,69 @@
             "time": "2022-05-21T17:30:32+00:00"
         },
         {
+            "name": "kalnoy/nestedset",
+            "version": "v6.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lazychaser/laravel-nestedset.git",
+                "reference": "f7a36eb3779ee4119a8ea72404aaf90c44fc9a15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/f7a36eb3779ee4119a8ea72404aaf90c44fc9a15",
+                "reference": "f7a36eb3779ee4119a8ea72404aaf90c44fc9a15",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/events": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/support": "^7.0|^8.0|^9.0|^10.0",
+                "php": "^7.2.5|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "7.*|8.*|9.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "v5.0.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Kalnoy\\Nestedset\\NestedSetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kalnoy\\Nestedset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Kalnoy",
+                    "email": "lazychaser@gmail.com"
+                }
+            ],
+            "description": "Nested Set Model for Laravel 5.7 and up",
+            "keywords": [
+                "database",
+                "hierarchy",
+                "laravel",
+                "nested sets",
+                "nsm"
+            ],
+            "support": {
+                "issues": "https://github.com/lazychaser/laravel-nestedset/issues",
+                "source": "https://github.com/lazychaser/laravel-nestedset/tree/v6.0.3"
+            },
+            "time": "2023-11-29T15:32:59+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v10.40.0",
             "source": {
@@ -2725,16 +2788,16 @@
         },
         {
             "name": "moonshine/moonshine",
-            "version": "2.6.2",
+            "version": "2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moonshine-software/moonshine.git",
-                "reference": "f3af3ac3fdd97df0c076187fba8d623b2f5fc1fa"
+                "reference": "2f2af34b454c04e67f1dfd1ece9f0783c24d2b29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/f3af3ac3fdd97df0c076187fba8d623b2f5fc1fa",
-                "reference": "f3af3ac3fdd97df0c076187fba8d623b2f5fc1fa",
+                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/2f2af34b454c04e67f1dfd1ece9f0783c24d2b29",
+                "reference": "2f2af34b454c04e67f1dfd1ece9f0783c24d2b29",
                 "shasum": ""
             },
             "require": {
@@ -2754,7 +2817,7 @@
                 "pestphp/pest": "^2.24.2",
                 "pestphp/pest-plugin-laravel": "^2.2",
                 "pestphp/pest-plugin-mock": "^2.0",
-                "rector/rector": "^0.19"
+                "rector/rector": "^1.0"
             },
             "suggest": {
                 "laravel/socialite": "Required to use the Socialite",
@@ -2810,7 +2873,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-01-09T20:24:06+00:00"
+            "time": "2024-03-12T12:17:26+00:00"
         },
         {
             "name": "nesbot/carbon",

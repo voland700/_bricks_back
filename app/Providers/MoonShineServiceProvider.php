@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\AdvantageResource;
+use App\MoonShine\Resources\BrandResource;
+use App\MoonShine\Resources\DocumentResource;
+use App\MoonShine\Resources\ProductResource;
+use App\MoonShine\Resources\PropertyResource;
+use App\MoonShine\Resources\TypeResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -13,6 +19,7 @@ use MoonShine\Resources\MoonShineUserRoleResource;
 use App\MoonShine\Resources\MasterResource;
 use App\MoonShine\Resources\SliderResource;
 use App\MoonShine\Pages\Import\masterImport;
+use App\MoonShine\Resources\CategoryResource;
 
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
@@ -29,6 +36,22 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     protected function menu(): array
     {
         return [
+
+            MenuGroup::make('Каталог', [
+
+                MenuItem::make('Товары', new ProductResource())->icon('heroicons.shopping-bag'),
+                MenuItem::make('Категории', new CategoryResource())->icon('heroicons.inbox-stack'),
+                MenuItem::make('Названия характеристик', new PropertyResource())->icon('heroicons.queue-list'),
+                MenuItem::make('Типы характеристик', new TypeResource())->icon('heroicons.square-3-stack-3d'),
+                MenuItem::make('Производители', new BrandResource())->icon('heroicons.cog'),
+                MenuItem::make('Преимущества товаров', new AdvantageResource())->icon('heroicons.hand-thumb-up'),
+                MenuItem::make('Документация', new DocumentResource())->icon('heroicons.document'),
+            ])->icon('heroicons.wallet'),
+
+
+
+
+
             MenuItem::make('Печники', new MasterResource())->icon('heroicons.trophy'),
 
             MenuGroup::make('Import/Export', [

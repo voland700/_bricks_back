@@ -22,7 +22,6 @@ use MoonShine\Fields\Textarea;
 class SliderResource extends ModelResource
 {
     protected string $model = Slider::class;
-
     protected string $title = 'Слайдер на главной';
 
     public function fields(): array
